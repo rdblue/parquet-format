@@ -312,6 +312,18 @@ enum Encoding {
   /** Dictionary encoding: the ids are encoded using the RLE encoding
    */
   RLE_DICTIONARY = 8;
+
+  /** Zig-zag encoding: move sign bit to lsb and bitwise-not negative values, then RLE
+   */
+  ZIGZAG_RLE = 9;
+
+  /** Delta zig-zag: subtract from last value, then zig-zag encode, then RLE
+   */
+  DELTA_ZIGZAG_RLE = 10;
+
+  /** Xor encoding: for floating point values, xor the mantissa with the last, then RLE.
+   */
+  XOR_FLOATING_POINT = 11;
 }
 
 /**
